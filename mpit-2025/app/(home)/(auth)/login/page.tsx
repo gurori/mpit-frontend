@@ -1,3 +1,5 @@
+import LoginFrom from "./LoginFrom";
+
 export default function LoginPage() {
-    return <div></div>
+  return <LoginFrom />;
 }

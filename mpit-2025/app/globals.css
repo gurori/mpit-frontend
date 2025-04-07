@@ -120,3 +120,17 @@
     @apply bg-background text-foreground;
   }
 }
+
+.container {
+  max-width: 1200px; /* Максимальная ширина */
+  margin-left: auto;
+  margin-right: auto; /* Центрирование контейнера */
+  padding: 0 15px; /* Отступы по бокам */
+  display: flex; /* Используем Flexbox */
+  flex-wrap: wrap; /* Позволяет элементам оборачиваться */
+  justify-content: space-between; /* Пространство между элементами */
+}
+
+.center {
+  @apply flex items-center justify-center;
+}
