@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { setCookies } from "@/app/actions";
+import { IApiErrorMessage } from "@/lib/types/IApiErrorMessage";
 
 export default function LoginFrom() {
   const { push } = useRouter();
@@ -41,7 +42,10 @@ export default function LoginFrom() {
           httpOnly: true,
           sameSite: "strict",
         });
-        push("/profile");
+        push("/chat");
+      } else {
+        const err: IApiErrorMessage = await res.json();
+        setFormError(err.detail);
       }
     } catch {
       setFormError("Ошибка. Пожалуйста повторите пойзже.");
@@ -49,12 +53,16 @@ export default function LoginFrom() {
   };
 
   return (
-    <form className="grid gap-2 mt-6" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="form-auth grid gap-2 mt-6"
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      <h1>Вход</h1>
       <p className="text-red-400">{formError}</p>
       <input
         {...register("login")}
-        className="gray"
-        placeholder="Почта"
+        className="auth"
+        placeholder="Логин"
         type="text"
       />
       <div>
@@ -62,7 +70,7 @@ export default function LoginFrom() {
       </div>
       <input
         {...register("password")}
-        className="gray"
+        className="auth"
         placeholder="Пароль"
         type="password"
       />

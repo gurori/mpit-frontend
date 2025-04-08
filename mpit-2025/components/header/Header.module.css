@@ -1,0 +1,10 @@
+.bg {
+  box-sizing: border-box;
+
+  position: sticky;
+  top: 0;
+
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid #ffffff;
+  backdrop-filter: blur(2px);
+}

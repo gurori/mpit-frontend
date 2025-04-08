@@ -1,0 +1,16 @@
+.card {
+  @apply grid content-between;
+  /* преимущество */
+
+  /* Auto layout */
+  padding: 24px 16px;
+
+  width: clamp(300px, 37vw, 644.5px);
+  height: 220px;
+
+  /* white text/H1 */
+  background: #ffffff;
+  /* тень */
+  box-shadow: 0px 16px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}

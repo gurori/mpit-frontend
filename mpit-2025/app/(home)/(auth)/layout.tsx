@@ -5,5 +5,5 @@ export default function AuthLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
-  return <div className="">{children}</div>;
+  return <div className="center min-h-screen">{children}</div>;
 }

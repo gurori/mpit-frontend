@@ -61,11 +61,15 @@ export default function RegisterForm() {
     }
   };
   return (
-    <form className="grid gap-2 mt-6" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="form-auth grid gap-2 mt-6"
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      <h2>Регистрация</h2>
       <p className="text-red-400">{formError}</p>
       <input
         {...register("login")}
-        className="gray"
+        className="auth"
         placeholder="Логин"
         type="text"
       />
@@ -74,7 +78,7 @@ export default function RegisterForm() {
       </div>
       <input
         {...register("password")}
-        className="gray"
+        className="auth"
         placeholder="Пароль"
         type="password"
       />
@@ -84,7 +88,7 @@ export default function RegisterForm() {
         )}
       </div>
       <Select onValueChange={field.onChange}>
-        <SelectTrigger className="input-gray">
+        <SelectTrigger className="input-gray w-full">
           <SelectValue placeholder="Роль" />
         </SelectTrigger>
         <SelectContent>
