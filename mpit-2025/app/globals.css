@@ -216,3 +216,14 @@ input.auth {
   border: 1px solid #f5f5f5;
   border-radius: 5px;
 }
+
+textarea.auth {
+  @apply pl-6 pt-2;
+  box-sizing: border-box;
+
+  min-height: 122px;
+
+  background: #f5f5f5;
+  border: 1px solid #f5f5f5;
+  border-radius: 5px;
+}

@@ -22,6 +22,8 @@ export default function Chat({
         .withAutomaticReconnect()
         .build();
       connection.on("ReceiveMessageAsync", (userName, message) => {
+        console.log("message");
+
         setMessages((messages) => [...messages, { userName, text: message }]);
       });
 
@@ -65,7 +67,7 @@ export default function Chat({
             placeholder="Что вас беспокоит?"
             onInput={(e) => setMessage(e.currentTarget.value)}
           />
-          <Button onClick={handleSubmit}>Отпрваить</Button>
+          <Button onClick={handleSubmit}>Отправить</Button>
         </div>
       </div>
     </main>

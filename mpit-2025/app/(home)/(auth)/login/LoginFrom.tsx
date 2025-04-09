@@ -1,6 +1,6 @@
 "use client";
 
-import { emailSchema, passwordSchema } from "@/lib/zod-schemas";
+import { loginSchema, passwordSchema } from "@/lib/zod-schemas";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -15,7 +15,7 @@ export default function LoginFrom() {
   const { push } = useRouter();
   const [formError, setFormError] = useState("");
   const userSchema = z.object({
-    login: emailSchema,
+    login: loginSchema,
     password: passwordSchema,
   });
   type TypeFormData = z.infer<typeof userSchema>;
@@ -42,7 +42,9 @@ export default function LoginFrom() {
           httpOnly: true,
           sameSite: "strict",
         });
-        push("/chat");
+        push("/info");
+      } else if ([401, 403].includes(res.status)) {
+        push("/login")
       } else {
         const err: IApiErrorMessage = await res.json();
         setFormError(err.detail);

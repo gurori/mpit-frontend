@@ -11,7 +11,7 @@ export default async function ChatPage() {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token!.value}`,
     },
-
+    //next: { revalidate: 10 }
   })
   if ([403, 401].includes(res.status)) redirect("/login")
   console.log(res);
